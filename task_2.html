@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/style.css">
+    <title>Homework_50_izida_kubekova_task_2</title>
+</head>
+
+<body>
+    <div id="mainPage">
+    </div>
+    <script type="text/babel">
+        const LogoBox = (props) => {
+            return (
+                <div className="flex-row">
+                    <a href="#">
+                        <img className="logo-img" src={props.imgPath} alt="logo" />
+                    </a>
+                    <a href="#" className="logo-text">Архив Знаний</a>
+                </div>
+            )
+        };
+
+        const HeaderLink = (props) => {
+            return (
+                <a href={props.linkPath} className="header-link">{props.linkName}</a>
+            )
+        };
+
+        const Header = () => {
+            return (
+                <div className="background">
+                    <div className="container">
+                        <div className="flex-row header-row">
+                            <LogoBox imgPath='./img/new-logo.png' />
+                            <div class="flex-row">
+                                <HeaderLink linkPath='https://google.com' linkName='Зарегистрироваться' />
+                                <HeaderLink linkPath='https://google.com' linkName='Войти' />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const Card = (props) => {
+            return (
+                <div className="card-box">
+                    <div class="card-img-box">
+                        <img className="card-img"
+                            src={props.imgPath ? props.imgPath : './img/default-video-img.jpg'}
+                            alt={props.title ? props.title : 'Видео'}
+                        />
+                    </div>
+                    <div class="card-text-section">
+                        <a className="card-title" href={props.videoPath ? props.videoPath : '#'}>{props.title ? props.title : 'Видео без названия'}</a>
+                        <p>{props.year ? props.year : 'Год неизвестен'}</p>
+                    </div>
+                </div>
+            )
+        };
+
+        const Content = (props) => {
+            return (
+                <div className="grid-container content-grid">
+                    <Card title='Выступление президента НИЦ «Курчатовский институт» М.В. Ковальчука. Марафон «Новое знание»'
+                        year='2021'
+                        videoPath='https://youtu.be/X0yvCs8RCOY'
+                        imgPath='./img/kovalchuk-marathon-2021.jpg' />
+                    <Card title='Могут ли люди разделиться на разные виды? Станислав Дробышевский | Научпоп'
+                        year='2022'
+                        videoPath='https://youtu.be/gjIHE5vy4Tk'
+                        imgPath='./img/drobyshevskiy-2022.jpg' />
+                    <Card title='НАШ «МИР»: первая многомодульная обитаемая орбитальная станция'
+                        year='2021'
+                        videoPath='https://youtu.be/coFZYOvbV7o'
+                        imgPath='./img/mir-station.jpg' />
+                    <Card title='«Легенды науки». Игорь Курчатов. Телеканал «Звезда». Док. фильм'
+                        year='2021'
+                        videoPath='http://vs.nrcki.ru/mp4/0a36976a-3151-4eea-a05b-e0c0fbdea168.mp4'
+                        imgPath='./img/kurchatov-legends.jpg' />
+                    <Card />
+                </div>
+            );
+        };
+
+        const SideBarLink = (props) => {
+            return (
+                <a href={props.linkPath ? props.linkPath : '#'} className="side-bar-link">{props.linkName}</a>
+            )
+        };
+
+        const SideBar = () => {
+            return (
+                <div class="side-bar-box">
+                    <SideBarLink linkName="Лекции" />
+                    <SideBarLink linkName="Доклады/выступления" />
+                    <SideBarLink linkName="Документальное кино" />
+                    <SideBarLink linkName="Научно-популярные телепередачи" />
+                    <SideBarLink linkName="Другое научно-популярное видео" />
+                </div>
+            )
+        };
+
+        const FooterLink = (props) => {
+            return (
+                <a href={props.linkPath} className="footer-link">{props.linkName}</a>
+            )
+        };
+
+        const Footer = () => {
+            return (
+                <div class="background">
+                    <div className="container">
+                        <div className="flex-row header-row">
+                            <div class="flex-column">
+                                <LogoBox imgPath='./img/new-logo.png' />
+                                <FooterLink linkName='Архив Знаний | 2022' />
+                            </div>
+                            <div class="flex-column">
+                                <FooterLink linkName='Зарегистрироваться/Войти' />
+                                <FooterLink linkName='Контакты' />
+                                <FooterLink linkName='Ещё ссылка' />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
+        };
+
+        const mainPageItems = (
+            <div>
+                <Header />
+                <div class="page-background screen-height-with-bars">
+                    <div className="container content-row">
+                        <Content />
+                        <SideBar />
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        );
+
+        ReactDOM.render(mainPageItems, document.getElementById('mainPage'));
+    </script>
+</body>
+
+</html>

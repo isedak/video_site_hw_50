@@ -1,0 +1,247 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: rgb(8, 8, 8);
+    box-sizing: border-box;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+}
+
+.background {
+    width: 100%;
+    background-image: linear-gradient(0.87deg, rgba(98, 98, 98, 0.9) 0.69%, rgb(27, 27, 29) 100%), url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.page-background {
+    width: 100%;
+    background-image: linear-gradient(0.87deg, rgba(222, 221, 232, 0.9) 0.69%, rgba(129, 129, 129, 0.9) 100%), url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container-custom {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.full-height {
+    min-height: 100vh;
+}
+
+.screen-height-with-bars {
+    min-height: calc(100vh - 229px);
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+.content-row {
+    display: grid;
+    align-content: space-between;
+    gap: 20px;
+}
+
+.header-row {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.logo-text {
+    font-weight: 900;
+    font-size: 17px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.header-link {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(222, 221, 232);
+}
+
+.header-link:hover,
+.footer-link:hover {
+    color: white;
+}
+
+.side-bar-link {
+    color: rgb(92, 92, 92);
+    font-weight: 400;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+.side-bar-link:hover {
+    font-weight: 700;
+    color: black;
+}
+
+.grid-container {
+    display: grid;
+    gap: 22px;
+}
+
+.card-box {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-box:hover {
+    box-shadow: 0px 2px 50px -14px rgba(53, 53, 53, 0.5);
+    color: rgb(45, 41, 71);
+}
+
+.card-img-box {
+    width: 100%;
+    min-height: 50%;
+    overflow: hidden;
+}
+
+.card-img {
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+    border-style: none;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-text-section {
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 25px;
+    overflow: hidden;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+.card-title {
+    display: inline-block;
+    min-height: 19px;
+    max-height: 76px;
+    font-size: 15px;
+    font-weight: 700;
+    overflow: hidden;
+    color: rgb(92, 92, 92);
+}
+
+.card-title:hover {
+    color: black;
+}
+
+.padding-top50 {
+    padding-top: 50px;
+}
+
+.side-bar-box {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    gap: 10px;
+    grid-area: side-menu;
+}
+
+.content-grid {
+    grid-area: content-grid;
+}
+
+.footer-link {
+    font-size: 13px;
+    color: rgb(222, 221, 232);
+    cursor: pointer;
+}
+
+@media screen and (min-width: 320px) {
+    .grid-container {
+        grid-template-columns: 100%;
+        grid-auto-rows: 305px;
+    }
+
+    .content-row {
+        grid-template-columns: 100%;
+        grid-template-areas: "side-menu""content-grid";
+    }
+
+    .header-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media screen and (min-width: 472px) {
+    .grid-container {
+        grid-template-columns: 100%;
+        grid-auto-rows: 395px;
+    }
+
+    .header-row {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(47%, 1fr));
+        grid-auto-rows: 290px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(47%, 1fr));
+        grid-auto-rows: 353px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+        grid-auto-rows: 286px;
+    }
+
+    .content-row {
+        grid-template-columns: 80% minmax(min-content, 20%);
+        grid-template-areas: "content-grid side-menu";
+    }
+}
